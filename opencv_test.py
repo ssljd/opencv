@@ -1,26 +1,7 @@
 import cv2
 import numpy as np
 
-#******************OpenCV图像*******************#
-#读取并保存图像
-'''
-img = cv2.imread('1.png')#读入图像
-# print(img.shape)
-# print(img.size)
-# print(img.dtype)
-cv2.imshow('FRAME',img)#显示图像
-cv2.imwrite('2.png',img)#保存图像
-cv2.waitKey(0)#键盘绑定系数
-cv2.destroyWindow('FRAME')#删除窗口
-img1 = cv2.imread('1.png')
-img2 = cv2.imread('2.png')
-for i in range(1,101):
-    print(i)
-    dst = cv2.addWeighted(img1,1 - i * 0.01, img2,i * 0.01, 0)
-    cv2.imshow('dst', dst)
-    cv2.waitKey(100)
-cv2.destroyAllWindows('dst')
-'''
+
 #扩展缩放图像
 '''
 img = cv2.imread("1.png")
@@ -92,105 +73,7 @@ plt.subplot(131),plt.imshow(img),plt.title('Input')
 plt.subplot(133),plt.imshow(dst),plt.title('Output')
 plt.show()
 '''
-#******************OpenCV视频********************#
-'''
-#播放视频
-cap = cv2.VideoCapture(0)#打开摄像头
-cap.isOpened()#检查是否成功初始化摄像头设备
-#定义编解码器并创建VideoWriter对象
-# fourcc = cv2.cv.FOURCC(*'XVID')#FourCC编码，具体是什么还不知道
-while(1):
-    rat, frame = cap.read()
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    cv2.imshow("frame",gray)
-    if(cv2.waitKey(1) & 0xFF == ord("q")):
-        break
-cap.release()
-cv2.destroyAllWindows()
-'''
-#保存视频
-'''
-cap = cv2.VideoCapture(1)#打开摄像头
-cap.isOpened()#检查是否成功初始化摄像头设备
-#定义编解码器并创建VideoWriter对象
-fourcc = cv2.VideoWriter_fourcc(*'XVID')#FourCC编码，具体是什么还不知道
-out = cv2.VideoWriter('output.avi',fourcc,20.0,(630,480))
-while(1):
-    ret, frame = cap.read()
-    if ret == True:
-        frame = cv2.flip(frame,0)
-        #写翻转的帧
-        out.write(frame)
-        cv2.imshow('frame',frame)
-        if cv2.waitKey(1) & 0xFF == 27:
-            break
-    # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    # cv2.imshow("frame",gray)
-    else:
-        break
-cap.release()
-out.release()
-cv2.destroyAllWindows()
-'''
-#******************OpenCV绘图********************#
-'''
-img = np.zeros((512,512,3), np.uint8)
-cv2.line(img, (50,50), (466,466), (255,255,0), 5)
-cv2.rectangle(img,(50,50),(180,180),(0,255,0),3)
-cv2.circle(img,(250,250),100,(0,255,255),-1)
-# cv2.imshow('FRAME',img)
-# cv2.waitKey(0)
 
-font = cv2.FONT_HERSHEY_SIMPLEX
-cv2.putText(img,'OpenCV',(10,300),font,4,(0,0,255),2)
-winname = 'example'
-cv2.namedWindow(winname)
-cv2.imshow(winname,img)
-cv2.waitKey(0)
-cv2.destroyWindow(winname)
-'''
-# OpenCV鼠标画笔
-'''
-events = [i for i in dir(cv2) if 'EVENT'in i]
-print(events)
-def draw_circle(event,x,y,flags,param):
-    if event == cv2.EVENT_LBUTTONDBLCLK:
-        cv2.circle(img,(x,y),5,(255,0,0),-1)
-# def draw_line()
-img = np.zeros((512,512,3),np.uint8)
-cv2.namedWindow('image')
-cv2.setMouseCallback('image',draw_circle)
-while(1):
-    cv2.imshow('image',img)
-    if cv2.waitKey(1)&0xFF == ord('q'):
-        break
-cv2.destroyWindow('image')
-'''
-#OpenCV滑度调做调色板
-'''def nothing(x):
-    pass
-#创建一副黑色图像
-img = np.zeros((300,512,3),np.uint8)
-cv2.namedWindow("image")
-cv2.createTrackbar('Red','image',0,255,nothing)
-cv2.createTrackbar('Green','image',0,255,nothing)
-cv2.createTrackbar('Blue','image',0,255,nothing)
-switch = '0:OFF\n1:ON'
-cv2.createTrackbar(switch,'image',0,1,nothing)
-while(1):
-    cv2.imshow('image',img)
-    k = cv2.waitKey(1)&0xFF
-    if k == 'q':
-        break
-    r = cv2.getTrackbarPos('Red','image')
-    g = cv2.getTrackbarPos('Green','image')
-    b = cv2.getTrackbarPos('Blue','image')
-    s = cv2.getTrackbarPos(switch,'image')
-    if s == 0:
-        img[:] = 0
-    else:
-        img[:] = [b,g,r]
-cv2.destroyWindow('image')'''
 #OpenCV检测程序效率
 '''
 img = cv2.imread("1.png")
