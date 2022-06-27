@@ -164,6 +164,7 @@ for i in range(4):
     plt.xticks([]),plt.yticks([])
 plt.show()
 '''
+cv2.copyMakeBorder()
 #Otsu's 二值化
 '''
 from matplotlib import pyplot as plt
