@@ -1,4 +1,6 @@
 # 调色板
+- palette [code](palette.py)
+- palette_mouse.py [code](palette_mouse.py)
 ```
 cv2.createTrackbar(trackbarName, windowName, value, count, onChange)
 ```

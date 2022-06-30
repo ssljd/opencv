@@ -1,6 +1,3 @@
-# 图像变换
-## 傅里叶变换
-
-
-
-## 拉普拉斯算子
+- DFT.py [code](DFT.py)
+- Fourier.py [code](Fourier.py)
+- Laplace.py [code](Laplace.py)

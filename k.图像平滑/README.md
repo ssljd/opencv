@@ -1,4 +1,6 @@
 # 图像平滑
+- filter.py [code](filter.py)
+- vague.py [code](vague.py)
 ## 2D卷积
 ```
 cv2.filter2D(src, ddepth, kernel)

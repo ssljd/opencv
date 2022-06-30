@@ -1,4 +1,5 @@
 # 图像金字塔
+- Pyramid.py [code](Pyramid.py)
 ## 下采样
 ```
 cv2.pyrDown(src_img, dstsize)

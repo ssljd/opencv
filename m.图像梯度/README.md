@@ -1,4 +1,5 @@
 # 图像梯度
+- Gradient_filter [code](Gradient_filter.py)
 ## Sobel算子
 ```
 cv2.Sobel(src, ddepth, dx, dy, ksize, scale, delta, borderType)

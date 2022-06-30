@@ -1,4 +1,5 @@
 # 视频
+- vedeo.py [code](vedeo.py)
 ## 捕获视频
 ```
 cap = cv2.VideoCapture(0)
